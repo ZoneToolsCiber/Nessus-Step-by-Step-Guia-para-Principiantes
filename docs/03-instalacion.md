@@ -4,30 +4,51 @@
 
 ---
 
+Nessus Expert puede instalarse tanto en **Linux** como en **Windows**. El proceso de activación y configuración desde el navegador es idéntico en ambos sistemas — lo que cambia es la instalación del paquete y la gestión del servicio.
+
+---
+
+## Tabla de Contenidos
+
+- [Requisitos previos](#requisitos-previos)
+- [Paso 1 — Obtener la licencia](#paso-1--obtener-la-licencia-de-activación)
+- [Instalación en Linux](#-instalación-en-linux-kali--debian--ubuntu)
+- [Instalación en Windows](#-instalación-en-windows)
+- [Paso común — Activación desde el navegador](#paso-común--activación-y-configuración-desde-el-navegador)
+- [Verificar la instalación](#verificar-la-instalación)
+- [Solución de problemas comunes](#solución-de-problemas-comunes)
+
+---
+
 ## Requisitos previos
 
-| Componente | Mínimo recomendado |
-|---|---|
-| Sistema operativo | Kali Linux / Ubuntu 20.04+ / Debian 11+ |
-| RAM | 4 GB (8 GB recomendado) |
-| Almacenamiento | 30 GB libres |
-| CPU | 4 núcleos |
-| Navegador | Chrome / Firefox |
-| Conectividad | Acceso a internet para activación y actualizaciones de plugins |
+| Componente | Linux | Windows |
+|---|---|---|
+| **Sistema operativo** | Kali Linux / Ubuntu 20.04+ / Debian 11+ | Windows 10 / 11 / Server 2016+ |
+| **RAM** | 4 GB (8 GB recomendado) | 4 GB (8 GB recomendado) |
+| **Almacenamiento** | 30 GB libres | 30 GB libres |
+| **CPU** | 4 núcleos | 4 núcleos |
+| **Navegador** | Chrome / Firefox | Chrome / Firefox / Edge |
+| **Permisos** | Usuario con `sudo` | Administrador local |
+| **Conectividad** | Internet para activación y plugins | Internet para activación y plugins |
 
 ---
 
 ## Paso 1 — Obtener la licencia de activación
 
+Este paso es el mismo independientemente del sistema operativo:
+
 1. Ir a [tenable.com/products/nessus](https://www.tenable.com/products/nessus) y seleccionar **Nessus Expert**.
 2. Registrarse con una cuenta y completar el proceso de compra o solicitud de prueba gratuita.
-3. Anotar el **Activation Code** que llegará por email — se necesitará en el Paso 4.
+3. Anotar el **Activation Code** que llegará por email — se necesitará más adelante.
 
 ---
 
-## Paso 2 — Descargar el paquete
+## 🐧 Instalación en Linux (Kali / Debian / Ubuntu)
 
-Desde la [página de descargas de Tenable](https://www.tenable.com/downloads/nessus), seleccionar el paquete para el sistema operativo. Para Kali Linux / Debian:
+### Paso 2L — Descargar el paquete `.deb`
+
+Desde la [página de descargas de Tenable](https://www.tenable.com/downloads/nessus), seleccionar la versión para **Debian / Kali Linux (amd64)**:
 
 ```bash
 # Descargar el paquete .deb (sustituir X.X.X por la versión actual)
@@ -36,11 +57,11 @@ wget https://www.tenable.com/downloads/api/v1/public/pages/nessus/downloads/XXXX
 ```
 
 > [!TIP]
-> Es más cómodo descargarlo directamente desde el navegador en la página de Tenable, que siempre muestra la versión más reciente, y transferirlo a la VM si es necesario.
+> Es más cómodo descargarlo directamente desde el navegador en la página de Tenable, que siempre muestra la versión más reciente.
 
 ---
 
-## Paso 3 — Instalar el paquete
+### Paso 3L — Instalar y arrancar el servicio
 
 ```bash
 # Instalar el paquete descargado
@@ -63,25 +84,107 @@ Salida esperada de `systemctl status`:
      Active: active (running)
 ```
 
+**Comandos de gestión del servicio en Linux:**
+
+```bash
+sudo systemctl start nessusd    # Arrancar
+sudo systemctl stop nessusd     # Detener
+sudo systemctl restart nessusd  # Reiniciar
+sudo systemctl status nessusd   # Ver estado
+```
+
 ---
 
-## Paso 4 — Activar y configurar desde el navegador
+## 🪟 Instalación en Windows
+
+### Paso 2W — Descargar el instalador `.exe`
+
+Desde la [página de descargas de Tenable](https://www.tenable.com/downloads/nessus), seleccionar la versión para **Windows (x86_64)**. Se descargará un archivo `.exe` del tipo:
+
+```
+Nessus-X.X.X-x64.exe
+```
+
+> [!TIP]
+> Asegurarse de descargar la versión `x64` si el sistema es de 64 bits, que es lo habitual en cualquier equipo moderno.
+
+---
+
+### Paso 3W — Ejecutar el instalador
+
+1. Hacer clic derecho sobre el archivo `.exe` descargado → **Ejecutar como administrador**.
+2. Seguir el asistente de instalación: aceptar la licencia y dejar la ruta por defecto:
+   ```
+   C:\Program Files\Tenable\Nessus\
+   ```
+3. Al finalizar, el instalador arranca automáticamente el servicio **Tenable Nessus** en Windows.
+
+> [!IMPORTANT]
+> Si Windows Defender o el antivirus muestra una alerta durante la instalación, es un falso positivo habitual con herramientas de seguridad. Permitir la ejecución.
+
+---
+
+### Gestión del servicio en Windows
+
+A diferencia de Linux, en Windows el servicio se gestiona desde el **Administrador de servicios** o desde PowerShell:
+
+**Opción A — Administrador de servicios (interfaz gráfica):**
+```
+Tecla Windows → buscar "Servicios" → localizar "Tenable Nessus"
+→ Clic derecho → Iniciar / Detener / Reiniciar
+```
+
+**Opción B — PowerShell (como Administrador):**
+```powershell
+# Ver estado del servicio
+Get-Service -Name "Tenable Nessus"
+
+# Arrancar
+Start-Service -Name "Tenable Nessus"
+
+# Detener
+Stop-Service -Name "Tenable Nessus"
+
+# Reiniciar
+Restart-Service -Name "Tenable Nessus"
+```
+
+**Opción C — CMD (como Administrador):**
+```cmd
+net start "Tenable Nessus"
+net stop  "Tenable Nessus"
+```
+
+> [!NOTE]
+> En Windows, Nessus se registra como un **servicio de Windows** que arranca automáticamente con el sistema. No es necesario abrirlo manualmente — basta con abrir el navegador y acceder a `https://localhost:8834` mientras el servicio esté corriendo.
+
+> [!TIP]
+> 📸 **Captura recomendada:** Administrador de servicios de Windows mostrando "Tenable Nessus" en estado *En ejecución*.
+
+---
+
+## Paso común — Activación y configuración desde el navegador
+
+Este paso es **idéntico en Linux y Windows**. Una vez que el servicio está corriendo:
 
 1. Abrir el navegador y acceder a: `https://localhost:8834`
-2. Aceptar el aviso de certificado autofirmado (es normal — Nessus usa HTTPS con certificado propio).
+2. Aceptar el aviso de certificado autofirmado — es normal, Nessus usa HTTPS con certificado propio.
 3. En la pantalla de bienvenida, seleccionar **Nessus Expert**.
 4. Introducir el **Activation Code** recibido por email.
 5. Crear el usuario administrador (nombre de usuario y contraseña).
 6. Esperar a que Nessus descargue e instale todos los plugins.
 
 > [!IMPORTANT]
-> La descarga de plugins puede tardar entre **10 y 30 minutos** dependiendo de la conexión. **No cerrar el navegador ni reiniciar el servicio** durante este proceso. Si se interrumpe, ejecutar `sudo systemctl restart nessusd` y acceder de nuevo para retomarlo.
+> La descarga de plugins puede tardar entre **10 y 30 minutos** dependiendo de la conexión. No cerrar el navegador ni reiniciar el servicio durante este proceso.
+>
+> Si se interrumpe en **Linux**: `sudo systemctl restart nessusd`
+> Si se interrumpe en **Windows**: reiniciar "Tenable Nessus" desde el Administrador de servicios.
 
 ---
 
-## Paso 5 — Verificar la instalación
+## Verificar la instalación
 
-Una vez completada la descarga de plugins, la interfaz mostrará el dashboard principal. Para confirmar que la versión activa es Expert:
+Una vez completada la descarga de plugins, confirmar que la versión activa es Expert:
 
 ```
 Menú superior derecho → tu usuario → About
@@ -95,12 +198,15 @@ Menú superior derecho → tu usuario → About
 
 ## Solución de problemas comunes
 
-| Problema | Causa probable | Solución |
-|---|---|---|
-| El navegador no carga `localhost:8834` | El servicio no está corriendo | `sudo systemctl start nessusd` |
-| La activación falla con "Invalid code" | El código ya fue usado o está caducado | Solicitar un nuevo código en el portal de Tenable |
-| Los plugins no se descargan | Sin conexión a internet o firewall bloqueando | Verificar conectividad: `curl -I https://plugins.nessus.org` |
-| El escaneo no detecta el objetivo | El target no responde a ping | Deshabilitar "Ping the remote host" en opciones del escaneo |
+| Problema | Sistema | Causa probable | Solución |
+|---|:---:|---|---|
+| El navegador no carga `localhost:8834` | Linux | Servicio no arrancado | `sudo systemctl start nessusd` |
+| El navegador no carga `localhost:8834` | Windows | Servicio detenido | Reiniciar "Tenable Nessus" desde Servicios |
+| Activación falla con "Invalid code" | Ambos | Código ya usado o caducado | Solicitar nuevo código en el portal de Tenable |
+| Los plugins no se descargan | Linux | Firewall bloqueando | `curl -I https://plugins.nessus.org` |
+| Los plugins no se descargan | Windows | Antivirus bloqueando | Añadir excepción para Nessus en el antivirus |
+| El escaneo no detecta el objetivo | Ambos | Target no responde a ping | Desactivar "Ping the remote host" en las opciones del escaneo |
+| Alerta del antivirus durante instalación | Windows | Falso positivo | Permitir la ejecución — comportamiento normal en herramientas de seguridad |
 
 ---
 
