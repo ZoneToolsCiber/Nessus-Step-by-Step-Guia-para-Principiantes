@@ -59,6 +59,7 @@ Antes de empezar, es importante saber qué versión tienes y qué puedes hacer c
 | Característica | Essentials | Professional | Expert |
 |---|:---:|:---:|:---:|
 | Precio | Gratuita | De pago | De pago (superior) |
+| **Prueba gratuita** | No aplica | ✅ 7 días | ✅ 7 días |
 | IPs escaneables | 16 IPs | Ilimitadas | Ilimitadas |
 | Plugins disponibles | Todos | Todos | Todos |
 | Exportación de reportes | Básica | Avanzada | Avanzada |
@@ -67,8 +68,11 @@ Antes de empezar, es importante saber qué versión tienes y qué puedes hacer c
 | Soporte técnico prioritario | ❌ | ✅ | ✅ |
 | Ideal para | Estudiantes / Lab | Pentesters | Equipos empresariales |
 
+> [!TIP]
+> **Prueba gratuita de 7 días:** Tenable ofrece una trial de **7 días completos** de Nessus Expert sin coste y sin necesidad de introducir datos de pago. Es más que suficiente para completar un laboratorio académico o evaluar la herramienta antes de adquirirla. Al registrarse en [tenable.com/products/nessus](https://www.tenable.com/products/nessus) y seleccionar Expert, aparece automáticamente la opción de iniciar la prueba gratuita. Pasados los 7 días, la licencia expira y Nessus pasa a funcionar en modo limitado hasta que se active una licencia de pago.
+
 > [!NOTE]
-> En este proyecto se utiliza **Nessus Expert**, que permite escanear un número ilimitado de IPs y acceder a todas las capacidades de exportación y análisis avanzado.
+> En este proyecto se utiliza **Nessus Expert** bajo la prueba gratuita de 7 días, lo que permite acceder a todas las capacidades de la herramienta sin restricciones durante el periodo del laboratorio.
 
 ---
 
