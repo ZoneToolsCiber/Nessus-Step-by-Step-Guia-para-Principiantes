@@ -28,7 +28,8 @@ Este repositorio está organizado en documentos independientes para facilitar la
 
 ### 🎓 Sobre este proyecto
 
-> *"Como estudiante apasionado por la ciberseguridad, entiendo que la teoría es solo el primer paso. El análisis de vulnerabilidades es una de las habilidades más críticas en el mundo real. He creado este repositorio no solo para documentar mi progreso en el **Módulo 4 — Seguridad en Arquitecturas Linux**, sino también para que sirva de guía a otros compañeros que, como yo, están empezando a utilizar Nessus para securizar sus entornos. Mi meta es democratizar el conocimiento técnico y facilitar la curva de aprendizaje."*
+> *"Como estudiante apasionado por la ciberseguridad, entiendo que la teoría es solo el primer paso. El análisis de vulnerabilidades es una de las habilidades más críticas en el mundo real. He creado este repositorio no solo para documentar mi progreso, sino también para que sirva de guía a otros compañeros que, como yo, están empezando a utilizar Nessus para securizar sus entornos. Mi meta es democratizar el conocimiento técnico y facilitar la curva de aprendizaje."*
+
 
 En el panorama actual de la ciberseguridad, la superficie de ataque de las organizaciones crece de forma exponencial. La gestión de vulnerabilidades no es una tarea puntual, sino un **proceso cíclico y crítico**. Este proyecto cubre las fases de **Descubrimiento de Información** y **Evaluación de Vulnerabilidades** utilizando Nessus Expert como herramienta principal, sobre un entorno de laboratorio virtualizado.
 
