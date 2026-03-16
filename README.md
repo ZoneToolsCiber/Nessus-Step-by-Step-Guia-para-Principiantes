@@ -10,7 +10,6 @@
 ![Platform](https://img.shields.io/badge/Target-Metasploitable%202-critical?style=for-the-badge)
 ![OS](https://img.shields.io/badge/Attacker-Kali%20Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
 ![Purpose](https://img.shields.io/badge/Purpose-Academic%20%2F%20Máster-informational?style=for-the-badge)
-![Standard](https://img.shields.io/badge/Standard-CVSS%20v3.1-orange?style=for-the-badge)
 
 </div>
 
