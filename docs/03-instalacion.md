@@ -12,7 +12,6 @@ Nessus Expert puede instalarse tanto en **Linux** como en **Windows**. El proces
 
 - [Requisitos previos](#requisitos-previos)
 - [Paso 1 — Obtener la licencia](#paso-1--obtener-la-licencia-de-activación)
-- [Instalación en Linux](#-instalación-en-linux-kali--debian--ubuntu)
 - [Instalación en Windows](#-instalación-en-windows)
 - [Paso común — Activación desde el navegador](#paso-común--activación-y-configuración-desde-el-navegador)
 - [Verificar la instalación](#verificar-la-instalación)
@@ -48,6 +47,13 @@ Tenable ofrece una **trial gratuita de 7 días completos** de Nessus Expert sin 
 4. Se recibirá un **Activation Code** por email en pocos minutos.
 5. Anotar el código — se usará en el paso de activación desde el navegador.
 
+A continuación se muestran las capturas realizadas:
+
+![Instalacion Nessus](/assets/1_nesus.png)
+![Instalacion Nessus](/assets/2_nesus.png)
+![Instalacion Nessus](/assets/3_nesus.png)
+
+
 > [!NOTE]
 > Los 7 días comienzan a contar desde el momento en que se activa la licencia en Nessus, no desde el registro en la web. Una vez expirada la trial, Nessus pasa a modo limitado hasta que se active una licencia de pago. Para este laboratorio, 7 días son más que suficientes.
 
@@ -57,60 +63,9 @@ Para uso profesional o continuado, adquirir la licencia completa desde el portal
 
 ---
 
-## 🐧 Instalación en Linux (Kali / Debian / Ubuntu)
-
-### Paso 2L — Descargar el paquete `.deb`
-
-Desde la [página de descargas de Tenable](https://www.tenable.com/downloads/nessus), seleccionar la versión para **Debian / Kali Linux (amd64)**:
-
-```bash
-# Descargar el paquete .deb (sustituir X.X.X por la versión actual)
-wget https://www.tenable.com/downloads/api/v1/public/pages/nessus/downloads/XXXXX/get \
-     -O Nessus-X.X.X-debian10_amd64.deb
-```
-
-> [!TIP]
-> Es más cómodo descargarlo directamente desde el navegador en la página de Tenable, que siempre muestra la versión más reciente.
-
----
-
-### Paso 3L — Instalar y arrancar el servicio
-
-```bash
-# Instalar el paquete descargado
-sudo dpkg -i Nessus-X.X.X-debian10_amd64.deb
-
-# Iniciar el servicio de Nessus
-sudo systemctl start nessusd
-
-# Habilitar el inicio automático con el sistema
-sudo systemctl enable nessusd
-
-# Verificar que el servicio está activo
-sudo systemctl status nessusd
-```
-
-Salida esperada de `systemctl status`:
-```
-● nessusd.service - Nessus Vulnerability Scanner
-     Loaded: loaded (/lib/systemd/system/nessusd.service; enabled)
-     Active: active (running)
-```
-
-**Comandos de gestión del servicio en Linux:**
-
-```bash
-sudo systemctl start nessusd    # Arrancar
-sudo systemctl stop nessusd     # Detener
-sudo systemctl restart nessusd  # Reiniciar
-sudo systemctl status nessusd   # Ver estado
-```
-
----
-
 ## 🪟 Instalación en Windows
 
-### Paso 2W — Descargar el instalador `.exe`
+### Paso 2 — Descargar el instalador `.exe`
 
 Desde la [página de descargas de Tenable](https://www.tenable.com/downloads/nessus), seleccionar la versión para **Windows (x86_64)**. Se descargará un archivo `.exe` del tipo:
 
@@ -122,8 +77,9 @@ Nessus-X.X.X-x64.exe
 > Asegurarse de descargar la versión `x64` si el sistema es de 64 bits, que es lo habitual en cualquier equipo moderno.
 
 ---
+![Instalacion Nessus](/assets/3_nesus.png)
 
-### Paso 3W — Ejecutar el instalador
+### Paso 3 — Ejecutar el instalador
 
 1. Hacer clic derecho sobre el archivo `.exe` descargado → **Ejecutar como administrador**.
 2. Seguir el asistente de instalación: aceptar la licencia y dejar la ruta por defecto:
@@ -132,6 +88,14 @@ Nessus-X.X.X-x64.exe
    ```
 3. Al finalizar, el instalador arranca automáticamente el servicio **Tenable Nessus** en Windows.
 
+![Instalacion Nessus](/assets/instalacion_8.png)
+![Instalacion Nessus](/assets/instalacion_9.png)
+![Instalacion Nessus](/assets/instalacion_10.png)
+![Instalacion Nessus](/assets/instalacion_11.png)
+![Instalacion Nessus](/assets/instalacion_12.png)
+![Instalacion Nessus](/assets/instalacion_13.png)
+
+
 > [!IMPORTANT]
 > Si Windows Defender o el antivirus muestra una alerta durante la instalación, es un falso positivo habitual con herramientas de seguridad. Permitir la ejecución.
 
@@ -139,46 +103,17 @@ Nessus-X.X.X-x64.exe
 
 ### Gestión del servicio en Windows
 
-A diferencia de Linux, en Windows el servicio se gestiona desde el **Administrador de servicios** o desde PowerShell:
-
-**Opción A — Administrador de servicios (interfaz gráfica):**
-```
-Tecla Windows → buscar "Servicios" → localizar "Tenable Nessus"
-→ Clic derecho → Iniciar / Detener / Reiniciar
-```
-
-**Opción B — PowerShell (como Administrador):**
-```powershell
-# Ver estado del servicio
-Get-Service -Name "Tenable Nessus"
-
-# Arrancar
-Start-Service -Name "Tenable Nessus"
-
-# Detener
-Stop-Service -Name "Tenable Nessus"
-
-# Reiniciar
-Restart-Service -Name "Tenable Nessus"
-```
-
-**Opción C — CMD (como Administrador):**
-```cmd
-net start "Tenable Nessus"
-net stop  "Tenable Nessus"
-```
 
 > [!NOTE]
 > En Windows, Nessus se registra como un **servicio de Windows** que arranca automáticamente con el sistema. No es necesario abrirlo manualmente — basta con abrir el navegador y acceder a `https://localhost:8834` mientras el servicio esté corriendo.
 
-> [!TIP]
-> 📸 **Captura recomendada:** Administrador de servicios de Windows mostrando "Tenable Nessus" en estado *En ejecución*.
+![Instalacion Nessus](/assets/instalacion_29.png)
 
 ---
 
 ## Paso común — Activación y configuración desde el navegador
 
-Este paso es **idéntico en Linux y Windows**. Una vez que el servicio está corriendo:
+Una vez que el servicio está corriendo:
 
 1. Abrir el navegador y acceder a: `https://localhost:8834`
 2. Aceptar el aviso de certificado autofirmado — es normal, Nessus usa HTTPS con certificado propio.
@@ -187,11 +122,21 @@ Este paso es **idéntico en Linux y Windows**. Una vez que el servicio está cor
 5. Crear el usuario administrador (nombre de usuario y contraseña).
 6. Esperar a que Nessus descargue e instale todos los plugins.
 
+![Instalacion Nessus](/assets/instalacion_15.png)
+
+
 > [!IMPORTANT]
 > La descarga de plugins puede tardar entre **10 y 30 minutos** dependiendo de la conexión. No cerrar el navegador ni reiniciar el servicio durante este proceso.
 >
 > Si se interrumpe en **Linux**: `sudo systemctl restart nessusd`
 > Si se interrumpe en **Windows**: reiniciar "Tenable Nessus" desde el Administrador de servicios.
+
+![Instalacion Nessus](/assets/instalacion_16.png)
+![Instalacion Nessus](/assets/instalacion_17.png)
+![Instalacion Nessus](/assets/instalacion_18.png)
+![Instalacion Nessus](/assets/instalacion_19.png)
+![Instalacion Nessus](/assets/instalacion_21.png)
+
 
 ---
 
@@ -204,22 +149,8 @@ Menú superior derecho → tu usuario → About
 → Debe mostrar: "Nessus Expert" con la fecha de expiración de la licencia
 ```
 
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla *About* de Nessus confirmando la versión Expert y la licencia activa.
+![Instalacion Nessus](/assets/instalacion_15.png)
 
----
-
-## Solución de problemas comunes
-
-| Problema | Sistema | Causa probable | Solución |
-|---|:---:|---|---|
-| El navegador no carga `localhost:8834` | Linux | Servicio no arrancado | `sudo systemctl start nessusd` |
-| El navegador no carga `localhost:8834` | Windows | Servicio detenido | Reiniciar "Tenable Nessus" desde Servicios |
-| Activación falla con "Invalid code" | Ambos | Código ya usado o caducado | Solicitar nuevo código en el portal de Tenable |
-| Los plugins no se descargan | Linux | Firewall bloqueando | `curl -I https://plugins.nessus.org` |
-| Los plugins no se descargan | Windows | Antivirus bloqueando | Añadir excepción para Nessus en el antivirus |
-| El escaneo no detecta el objetivo | Ambos | Target no responde a ping | Desactivar "Ping the remote host" en las opciones del escaneo |
-| Alerta del antivirus durante instalación | Windows | Falso positivo | Permitir la ejecución — comportamiento normal en herramientas de seguridad |
 
 ---
 
