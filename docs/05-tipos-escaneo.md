@@ -67,8 +67,7 @@ Cada hallazgo de Nessus tiene asociado un **Plugin ID**. Para consultar su descr
 
 Al hacer clic en **New Scan** se abre la galería de plantillas organizada en tres categorías: **Discovery**, **Vulnerabilities** y **Compliance**.
 
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla completa de Scan Templates mostrando todas las plantillas agrupadas por categoría.
+![Instalacion Nessus](/assets/escaneos.png)
 
 ---
 
