@@ -91,7 +91,7 @@ Con un objetivo como Metasploitable, Nessus puede reportar decenas de hallazgos.
 
 ## Qué no es una vulnerabilidad
 
-Los hallazgos **Info (🔵)** no son vulnerabilidades — son observaciones. Por ejemplo:
+Los hallazgos **Info (🔵)** , en general no suelen ser vulnerabilidades — son observaciones. Por ejemplo:
 
 - `Puerto 22/tcp abierto` → es informativo, no un fallo en sí mismo.
 - `Certificado SSL válido hasta 2025` → informativo.

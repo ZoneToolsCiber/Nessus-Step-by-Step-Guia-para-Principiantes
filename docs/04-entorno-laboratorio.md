@@ -4,56 +4,61 @@
 
 ---
 
-Todo el entorno corre sobre **VirtualBox** o **VMware**, con ambas máquinas en la misma red privada para que puedan comunicarse sin exponer tráfico al exterior.
+Todo el análisis se realizó desde una máquina **Windows 11** con Nessus Expert instalado directamente sobre el sistema operativo — no desde una VM de Kali Linux. Las máquinas objetivo corren como máquinas virtuales en la misma red que el host Windows.
+
+> [!NOTE]
+> Aunque el entorno teórico descrito en otros documentos usa Kali Linux como plataforma del analista, **en la práctica real de este proyecto se utilizó Windows 11**. Nessus Expert está disponible para ambos sistemas y funciona de forma idéntica — la diferencia es únicamente cómo se instala y cómo se gestiona el servicio (ver [`03-instalacion.md`](03-instalacion.md)).
 
 ---
 
 ## Arquitectura de red
 
 ```
-┌──────────────────────────────────────────────────────────┐
-│               Red Interna / NAT Network                  │
-│                    192.168.1.0/24                        │
-│                                                          │
-│  ┌──────────────────┐         ┌─────────────────────┐   │
-│  │   Kali Linux     │         │   Metasploitable 2  │   │
-│  │   (Analista)     │◄───────►│   (Target)          │   │
-│  │   192.168.1.10   │         │   192.168.1.50      │   │
-│  │                  │         │                     │   │
-│  │  Nessus Expert   │         │  Apache  2.2.8      │   │
-│  │  :8834           │         │  MySQL   5.0        │   │
-│  └──────────────────┘         │  vsftpd  2.3.4      │   │
-│                               │  OpenSSH 4.7        │   │
-│                               └─────────────────────┘   │
-└──────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                  Red Interna / NAT Network                   │
+│                       192.168.1.0/24                         │
+│                                                              │
+│  ┌───────────────────┐       ┌──────────────────────────┐   │
+│  │   Windows 11      │       │   Hosts objetivo (VMs)   │   │
+│  │   (Analista)      │◄─────►│                          │   │
+│  │   192.168.1.134   │       │  192.168.1.134 (Win11)   │   │
+│  │                   │       │  192.168.1.165 (Linux)   │   │
+│  │  Nessus Expert    │       │  192.168.1.163 (Linux)   │   │
+│  │  :8834            │       │                          │   │
+│  └───────────────────┘       └──────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
 ```
+
+> [!NOTE]
+> El host `192.168.1.134` es la misma máquina Windows 11 donde está instalado Nessus — es decir, Nessus se escaneó a sí mismo además de a los otros dos hosts. Esto es una práctica válida para analizar la propia máquina de trabajo.
 
 ---
 
-## Máquina Atacante — Analista (Kali Linux)
+## Máquina Analista — Windows 11
 
 | Parámetro | Valor |
 |---|---|
-| **Sistema Operativo** | Kali Linux 2023.x |
-| **Herramienta** | Nessus Expert v10.x |
-| **Adaptador de red** | NAT Network / Red Interna |
-| **IP** | `192.168.1.10` |
+| **Sistema Operativo** | Windows 11 |
+| **Herramienta** | Nessus Expert v10.x (trial 7 días) |
+| **Configuración de red** | Red local / NAT |
+| **IP** | `192.168.1.134` |
 | **Interfaz Nessus** | `https://localhost:8834` |
 
 ---
 
-## Máquina Objetivo — Target (Metasploitable 2)
+## Máquinas Objetivo — Targets
 
-| Parámetro | Valor |
-|---|---|
-| **Sistema Operativo** | Metasploitable 2 (Ubuntu 8.04) |
-| **Servicios activos** | Apache 2.2.8, MySQL 5.0, vsftpd 2.3.4, OpenSSH 4.7 |
-| **Adaptador de red** | NAT Network / Red Interna |
-| **IP** | `192.168.1.50` |
+| Host | Sistema Operativo | Servicios destacados |
+|---|---|---|
+| `192.168.1.134` | Windows 11 (misma máquina analista) | XAMPP (Apache, MySQL) activos durante el escaneo |
+| `192.168.1.165` | Linux (Metasploitable 2 / Ubuntu) | Samba, NFS, Telnet, OpenSSH |
+| `192.168.1.163` | Linux (Ubuntu 14.04 EOL) | Apache Tomcat, OpenSSH, SMB |
+
+> [!NOTE]
+> **XAMPP:** antes de lanzar el escaneo se activó XAMPP en la máquina Windows para levantar servicios de Apache y MySQL y poder ver resultados más completos en el análisis del host local.
 
 > [!NOTE]
 > **¿Por qué Metasploitable 2?** Es una máquina virtual diseñada específicamente para ser vulnerable, usada en entornos de aprendizaje. Viene con servicios intencionalmente desactualizados y configuraciones inseguras que permiten practicar análisis y explotación sin riesgo legal ni ético.
->
 > Descargable en: [sourceforge.net/projects/metasploitable](https://sourceforge.net/projects/metasploitable/)
 
 ---
