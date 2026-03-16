@@ -11,7 +11,7 @@ Nessus Expert puede instalarse tanto en **Linux** como en **Windows**. El proces
 ## Tabla de Contenidos
 
 - [Requisitos previos](#requisitos-previos)
-- [Paso 1 — Obtener la licencia](#paso-1--obtener-la-licencia-de-activación)
+- [Obtener la licencia](#paso-1--obtener-la-licencia-de-activación)
 - [Instalación en Windows](#-instalación-en-windows)
 - [Paso común — Activación desde el navegador](#paso-común--activación-y-configuración-desde-el-navegador)
 - [Verificar la instalación](#verificar-la-instalación)
