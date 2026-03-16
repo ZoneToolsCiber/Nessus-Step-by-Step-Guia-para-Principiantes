@@ -22,6 +22,8 @@ Este documento cubre todo lo necesario para trabajar con los escaneos de Nessus:
 
 Antes de lanzar el primer escaneo, es importante conocer la interfaz web de Nessus (`https://localhost:8834`) y para qué sirve cada sección.
 
+![Instalacion Nessus](/assets/instalacion_30.png)
+
 ### Menú My Scans
 
 | Sección | Descripción |
@@ -37,8 +39,8 @@ Antes de lanzar el primer escaneo, es importante conocer la interfaz web de Ness
 > [!TIP]
 > Crear una **carpeta de proyecto** antes de lanzar el primer escaneo evita tener todos los resultados mezclados. `My Scans → New Folder`.
 
-> [!TIP]
-> 📸 **Captura recomendada:** vista de My Scans mostrando la carpeta "Proyecto Inicial" creada con un escaneo dentro.
+![Instalacion Nessus](/assets/carpeta.png)
+
 
 ### Menú Settings
 
@@ -48,8 +50,7 @@ Antes de lanzar el primer escaneo, es importante conocer la interfaz web de Ness
 | **Advanced** | Parámetros avanzados del motor: SSL/TLS, lista de cifrados, valores por defecto globales de rendimiento. Para uso administrativo avanzado — no modificar en laboratorio. |
 | **User Interface** | Preferencias visuales: idioma, zona horaria, opciones de visualización. |
 
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla About mostrando la versión Expert, la licencia activa y el número de plugins instalados.
+![About](/assets/about.png)
 
 ### Dónde buscar plugins
 
