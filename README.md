@@ -48,15 +48,15 @@ En el panorama actual de la ciberseguridad, la superficie de ataque de las organ
 
 | Documento | Descripción |
 |---|---|
-| [`01-Que-es-nessus`](docs/01-que-es-nessus.md) | Qué es Nessus Expert, versiones disponibles y comparativa |
-| [`02-Glosario`](docs/02-glosario.md) | Glosario de términos: CVE, CVSS, VPR, Plugin, False Positive... |
-| [`03-Instalacion`](docs/03-instalacion.md) | Instalación paso a paso de Nessus Expert en Kali Linux |
-| [`04-Entorno-laboratorio`](docs/04-entorno-laboratorio.md) | Configuración del entorno de laboratorio virtualizado |
-| [`05-Tipos-escaneo`](docs/05-tipos-escaneo.md) | Tipos de escaneo explicados: cuándo y cómo usar cada uno |
-| [`06-Politicas-escaneo`](docs/06-politicas-escaneo.md) | Políticas de escaneo configuradas en este proyecto |
-| [`07-Como-leer-reporte`](docs/07-como-leer-reporte.md) | Cómo leer e interpretar un reporte de Nessus |
-| [`08-Hallazgos`](docs/08-hallazgos.md) | Hallazgos del laboratorio con análisis detallado |
-| [`09-Remediacion`](docs/09-remediacion.md) | Plan de remediación y verificación con re-scan |
+| [`01 - ¿Qué es nessus?`](docs/01-que-es-nessus.md) | Qué es Nessus Expert, versiones disponibles y comparativa |
+| [`02 - Glosario`](docs/02-glosario.md) | Glosario de términos: CVE, CVSS, VPR, Plugin, False Positive... |
+| [`03 - Instalacion`](docs/03-instalacion.md) | Instalación paso a paso de Nessus Expert en Kali Linux |
+| [`04 - Entorno de laboratorio`](docs/04-entorno-laboratorio.md) | Configuración del entorno de laboratorio virtualizado |
+| [`05 - Tipos de escaneo`](docs/05-tipos-escaneo.md) | Tipos de escaneo explicados: cuándo y cómo usar cada uno |
+| [`06 - Politicas de escaneo`](docs/06-politicas-escaneo.md) | Políticas de escaneo configuradas en este proyecto |
+| [`07 - Como leer reporte`](docs/07-como-leer-reporte.md) | Cómo leer e interpretar un reporte de Nessus |
+| [`08 - Hallazgos`](docs/08-hallazgos.md) | Hallazgos del laboratorio con análisis detallado |
+| [`09 - Remediacion`](docs/09-remediacion.md) | Plan de remediación y verificación con re-scan |
 
 ---
 
@@ -64,7 +64,7 @@ En el panorama actual de la ciberseguridad, la superficie de ataque de las organ
 
 ```text
 .
-├── 📂 assets/              # Capturas del proceso completo
+├── 📂 assets/                      # Capturas del proceso completo
 │
 ├── 📂 docs/
 │   ├── 01-que-es-nessus.md
