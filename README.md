@@ -64,18 +64,7 @@ En el panorama actual de la ciberseguridad, la superficie de ataque de las organ
 
 ```text
 .
-├── 📂 assets/
-│   ├── 📂 screenshots/               # Capturas del proceso completo
-│   │   ├── 01_nessus_install.png
-│   │   ├── 02_lab_connectivity.png
-│   │   ├── 03_scan_config.png
-│   │   ├── 04_scan_results_overview.png
-│   │   ├── 05_finding_apache_rce.png
-│   │   ├── 06_finding_vsftpd_backdoor.png
-│   │   ├── 07_finding_ssh_root.png
-│   │   └── 08_rescan_after_remediation.png
-│   └── 📂 diagrams/
-│       └── lab_network.png
+├── 📂 assets/              # Capturas del proceso completo
 │
 ├── 📂 docs/
 │   ├── 01-que-es-nessus.md
