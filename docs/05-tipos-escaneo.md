@@ -255,7 +255,7 @@ Port Scanner Settings: Scan all ports (1-65535) · Use netstat · Use SYN scanne
 Ping the remote host: OFF
 ```
 
-En este laboratorio se puso **OFF** porque el firewall de Windows bloqueaba ICMP y Nessus asumía que el host estaba apagado. Con el ping desactivado, intenta conectarse directamente aunque no haya respuesta al ping.
+Se puede poner **OFF** ya que el firewall de Windows puede bloquear ICMP y Nessus asume que el host esta apagado. Con el ping desactivado, intenta conectarse directamente aunque no haya respuesta al ping.
 
 > [!NOTE]
 > Con ping en OFF los escaneos tardan más — Nessus no puede descartar hosts inactivos rápidamente. Usarlo cuando haya firewalls que filtren ICMP.
@@ -289,6 +289,8 @@ Gestiona qué aparece en el informe y cómo se identifican los hosts.
 | **Display hosts that respond to ping** | Incluye hosts activos confirmados por ping | ✅ Activar normalmente |
 | **Display unreachable hosts** | Incluye IPs que no respondieron | ⚠️ Solo si necesitas confirmar qué equipos estaban apagados — genera informes muy grandes en rangos amplios |
 | **Display Unicode characters** | Muestra tildes, ñ y caracteres no ASCII | ✅ Activar si hay nombres con caracteres especiales |
+
+![Instalacion Nessus](/assets/report2.png)
 
 ![Instalacion Nessus](/assets/report.png)
 
@@ -357,8 +359,7 @@ Credentials → SSH
 > [!NOTE]
 > Para que las credenciales Windows funcionen, el target debe estar configurado previamente (usuario local, SMB habilitado, WMI configurado, registro modificado). Ver [`03-instalacion.md`](03-instalacion.md).
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Credentials con la configuración Windows SMB completa.
+![Instalacion Nessus](/assets/credentials.png)
 
 ---
 
@@ -371,9 +372,8 @@ Permite habilitar o deshabilitar **familias enteras de plugins** según el tipo 
 ```
 Plugins → seleccionar familia → Enable / Disable
 ```
-
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Plugins mostrando las familias con algunas desactivadas.
+![Instalacion Nessus](/assets/plugin.png)
+![Instalacion Nessus](/assets/plugin2.png)
 
 ---
 
@@ -401,6 +401,8 @@ El siguiente flujo refleja exactamente cómo se realizó el escaneo del laborato
 # Verificar que Nessus está corriendo
 Get-Service -Name "Tenable Nessus"  # Estado: Running
 ```
+![Instalacion Nessus](/assets/status.png)
+
 
 ```cmd
 # Verificar conectividad con los hosts objetivo
@@ -431,6 +433,8 @@ Rellenar BASIC (nombre, descripción, folder, targets), configurar DISCOVERY (ti
 ```
 Carpeta del proyecto → botón ▶ Launch
 ```
+![Instalacion Nessus](/assets/escaneo_avanzado.png)
+
 
 ### Paso 6 — Revisar resultados
 
@@ -442,6 +446,9 @@ Al finalizar, hacer clic en el escaneo para acceder a las cuatro pestañas:
 | **Hosts** | Lista de hosts con barras de severidad. Clic en un host para ver sus vulnerabilidades individuales |
 | **Vulnerabilities** | Vista agregada de todos los hallazgos con columnas Sev, CVSS, VPR, EPSS, Name |
 | **History** | Histórico de ejecuciones para comparar antes/después de remediaciones |
+
+![Instalacion Nessus](/assets/vuln_encontradas.png)
+
 
 **Datos del escaneo real de este laboratorio:**
 ```
@@ -455,10 +462,7 @@ Total vulnerabilities: 60
 Auth:     0 Succeeded / 2 Failed (escaneo sin credenciales — esperado)
 ```
 
-![Instalacion Nessus](/assets/escaneo_avanzado.png)
 ![Instalacion Nessus](/assets/escaneo_avanzado_2.png)
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Scan Summary con los Scan Details, el gráfico de vulnerabilidades y el bloque de autenticación.
 
 ### Paso 7 — Profundizar en un hallazgo
 
@@ -480,9 +484,7 @@ Output:
 
 Port: 23/tcp/telnet    Host: 192.168.1.165
 ```
-
-> [!TIP]
-> 📸 **Captura recomendada:** detalle completo de un hallazgo mostrando Description, Solution, See Also, Output y Port/Hosts.
+![Instalacion Nessus](/assets/v_medium.png)
 
 ---
 
@@ -534,8 +536,9 @@ En Linux: `$PATH` y `/home` están desactivados por defecto. En macOS: `/Users`,
 > [!WARNING]
 > Activar File System Scanning en escaneos con 10+ hosts simultáneos puede degradar el rendimiento significativamente.
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Assessment → Malware Settings mostrando las secciones de Hash files, Yara Rules y File System Scanning con los directorios.
+![Instalacion Nessus](/assets/malware_setting.png)
+![Instalacion Nessus](/assets/malware_setting2.png)
+
 
 ### Credenciales para Malware Scan
 
