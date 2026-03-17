@@ -27,12 +27,6 @@
 | 🔵 Info | Múltiples |
 | **MIXED** | Múltiples grupos |
 
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla principal de la pestaña Hosts mostrando los tres hosts con sus barras de vulnerabilidades y el panel lateral de Scan Details con el tiempo de 21 minutos.
-
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Vulnerabilities con las 60 vulnerabilidades listadas, incluyendo los indicadores CRITICAL, HIGH, MEDIUM, LOW, INFO y MIXED.
-
 ---
 
 ## Distribución por host
