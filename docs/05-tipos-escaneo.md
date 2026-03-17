@@ -78,6 +78,9 @@ Mapea qué hosts están activos en la red y qué puertos tienen abiertos, sin bu
 
 **Cuándo usarlo:** cuando se quiere hacer un reconocimiento inicial rápido de la red antes de decidir qué hosts analizar en profundidad.
 
+![Instalacion Nessus](/assets/Host_discovery.png)
+
+
 #### 🔵 Attack Surface Discovery
 Descubre la superficie de ataque externa de una organización — dominios, subdominios, IPs y servicios expuestos a internet.
 
@@ -209,8 +212,10 @@ Email Recipient(s): correo@ejemplo.com · Attach Report: ON · Formato: PDF/CSV/
 > [!NOTE]
 > Las notificaciones requieren que se haya configurado un servidor SMTP en Nessus. Si no está configurado aparece: *"Notifications will not be sent until your SMTP Server is configured."*
 
-> [!TIP]
-> 📸 **Captura recomendada:** formulario BASIC con los campos rellenados, pestaña Schedule configurada y pestaña Notifications con el email.
+![Instalacion Nessus](/assets/host_discovery_2.png)
+![Instalacion Nessus](/assets/schedule.png)
+![Instalacion Nessus](/assets/notifications.png)
+
 
 ---
 
@@ -258,8 +263,8 @@ En este laboratorio se puso **OFF** porque el firewall de Windows bloqueaba ICMP
 > [!WARNING]
 > El escaneo de **puertos UDP** demora muchísimo. Desactivarlo a menos que sea estrictamente necesario. Para el primer uso, **Port scan (common ports)** sin UDP es la opción más equilibrada.
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Discovery con el Scan Type y el Remote Host Ping en OFF.
+![Instalacion Nessus](/assets/discovery.png)
+![Instalacion Nessus](/assets/discovery2.png)
 
 ---
 
