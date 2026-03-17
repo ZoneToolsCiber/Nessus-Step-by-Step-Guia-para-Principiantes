@@ -324,8 +324,6 @@ Su propósito es la **optimización y el sigilo**: ajustar el rendimiento para q
 > [!WARNING]
 > Valores muy altos de hosts simultáneos pueden colapsar el switch de la red. En laboratorio, los valores por defecto son adecuados — no modificar para el primer uso.
 
-![Instalacion Nessus](/assets/escaneo_avanzado.png)
-![Instalacion Nessus](/assets/escaneo_avanzado_2.png)
 ![Instalacion Nessus](/assets/advanced_scan.png)
 
 ---
@@ -457,6 +455,8 @@ Total vulnerabilities: 60
 Auth:     0 Succeeded / 2 Failed (escaneo sin credenciales — esperado)
 ```
 
+![Instalacion Nessus](/assets/escaneo_avanzado.png)
+![Instalacion Nessus](/assets/escaneo_avanzado_2.png)
 > [!TIP]
 > 📸 **Captura recomendada:** pestaña Scan Summary con los Scan Details, el gráfico de vulnerabilidades y el bloque de autenticación.
 
