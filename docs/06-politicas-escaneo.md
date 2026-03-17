@@ -28,9 +28,7 @@ My Scans → Policies → New Policy
 → Al crear un nuevo escaneo: Settings → Policy → [seleccionar política guardada]
 ```
 
-> [!TIP]
-> 📸 **Captura recomendada:** sección Policies mostrando una política guardada con su nombre y plantilla base.
-
+![policies](/assets/policies_1.png)
 ---
 
 ## ¿Para qué sirven?
@@ -99,6 +97,9 @@ Los parámetros clave que definen el comportamiento de la política son:
 - Cómo se identifican los hosts (por IP o por DNS)
 - Qué hosts aparecen en el informe
 - Si el informe es editable o no
+
+![policies](/assets/policies_p1.png)
+
 
 ### Paso 4 — Guardar y asociar al escaneo
 ```
@@ -207,8 +208,7 @@ Credentials → Windows → SMB
 - Servicios en ejecución con permisos excesivos
 - Software EOL instalado que no tiene puertos de red abiertos
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Credentials con la configuración Windows SMB y las opciones adicionales activadas.
+![policies](/assets/instalacion_27.png)
 
 ---
 
@@ -251,8 +251,7 @@ Credentials → SSH
 - Configuración de SSH (`/etc/ssh/sshd_config`)
 - Cron jobs sospechosos
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Credentials con la configuración SSH y la opción de elevación de privilegios con sudo.
+![policies](/assets/instalacion_28.png)
 
 ---
 
@@ -312,8 +311,6 @@ Settings → About → Plugins
 
 Mantener los plugins actualizados es crítico. Una vulnerabilidad publicada hoy (como Log4Shell, Heartbleed o EternalBlue en su momento) puede tener un plugin disponible en Nessus en cuestión de horas — pero solo se detectará si los plugins están al día.
 
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla About de Nessus mostrando la fecha de actualización de plugins y el número total instalado.
 
 ---
 
@@ -349,57 +346,6 @@ Además de activar o desactivar familias enteras, Nessus permite crear **reglas 
 
 > [!NOTE]
 > Las Plugin Rules son herramientas de ajuste fino — no deben usarse para "esconder" vulnerabilidades reales, sino para eliminar ruido legítimamente documentado (falsos positivos confirmados).
-
----
-
-## Política aplicada en este proyecto
-
-En el laboratorio se configuró una política personalizada basada en **Advanced Scan** con las siguientes modificaciones específicas para el entorno de Windows 11 + máquinas Linux:
-
-### Configuración general
-
-- **Scan Type:** Port scan (common ports) — equilibrio entre cobertura y velocidad.
-- **Remote Host Ping:** OFF — el firewall de Windows bloqueaba ICMP.
-- **Detección de servicios:** búsqueda de **banners** activada para identificar versiones exactas de Apache, MySQL y vsftpd.
-- **Escaneo UDP:** desactivado — demora excesivamente el escaneo sin aportación proporcional.
-
-### Enumeración de usuarios SSH
-
-```
-Settings → Assessment → Brute Force → SSH
-→ Activar: "Attempt to enumerate valid SSH usernames"
-```
-
-Permite verificar si el servidor SSH revela nombres de usuario válidos mediante diferencias en los tiempos de respuesta — vector previo en ataques de fuerza bruta dirigida.
-
-> [!NOTE]
-> Esto es posible en OpenSSH versiones antiguas (como la 4.7 de Metasploitable). Las versiones modernas de OpenSSH mitigan este comportamiento.
-
-### Consideraciones de rendimiento
-
-Para no saturar las VMs con recursos limitados:
-
-```
-Settings → Performance
-→ Max simultaneous checks per host: 5  (por defecto: 30)
-→ Max simultaneous hosts per scan:  1
-```
-
-### Resumen de la política aplicada
-
-| Parámetro | Valor configurado | Valor por defecto |
-|---|---|---|
-| Cobertura de puertos | Common ports | Top 1.000 |
-| Remote Host Ping | OFF | ON |
-| Service Detection | Todos los puertos | Solo well-known |
-| Banner grabbing | Activado | Activado |
-| Escaneo UDP | Desactivado | Desactivado |
-| Enumeración SSH | Activada | Desactivada |
-| Max checks simultáneos | 5 | 30 |
-| Max hosts simultáneos | 1 | 5 |
-
-> [!TIP]
-> 📸 **Captura recomendada:** pantalla de configuración de la política mostrando los ajustes de puertos, ping, detección de servicios y rendimiento.
 
 ---
 

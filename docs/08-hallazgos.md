@@ -43,8 +43,7 @@
 | `192.168.1.165` | Fail | Hallazgos HIGH y MEDIUM — servicios de red expuestos |
 | `192.168.1.163` | Fail | Mezcla de severidades — Apache Tomcat, SSH, SMB |
 
-> [!TIP]
-> 📸 **Captura recomendada:** vista de la pestaña Hosts con las tres IPs, la columna Auth en Fail y las barras de color por severidad de cada host.
+![vulns encontradas](/assets/escaneo_avanzado_2.png)
 
 ---
 
@@ -68,6 +67,9 @@ A continuación se recogen todos los hallazgos identificados en la pestaña Vuln
 | 🔵 INFO | — | — | — | SMB (Multiple Issues) — 6 hallazgos |
 | 🔵 INFO | — | — | — | HTTP (Multiple Issues) — 3 hallazgos |
 | 🔵 INFO | — | — | — | TLS (Multiple Issues) — 3 hallazgos |
+
+![vulns encontradas](/assets/vuln_encontradas.png)
+
 
 > [!NOTE]
 > Los valores marcados con `*` indican que el CVSS base puede variar según la versión del vector empleado. Las entradas **MIXED** agrupan varios plugins de diferente severidad bajo un mismo servicio o protocolo.
@@ -101,8 +103,7 @@ Time since Security End of Life (Est.) : >= 6 years
 
 **Solución:** Actualizar a una versión de Ubuntu con soporte activo (22.04 LTS o 24.04 LTS).
 
-> [!TIP]
-> 📸 **Captura recomendada:** detalle del hallazgo CRITICAL "Canonical Ubuntu Linux SEoL" mostrando la descripción, la fecha de EOL y el output con los datos del sistema.
+![vulns encontradas](/assets/v_critical.png)
 
 ---
 
@@ -133,8 +134,7 @@ Nessus detected that the Samba Badlock patch has not been applied.
 
 **Solución:** Actualizar Samba a versión 4.2.11 / 4.3.8 / 4.4.2 o posterior.
 
-> [!TIP]
-> 📸 **Captura recomendada:** detalle del hallazgo HIGH "Samba Badlock Vulnerability" mostrando descripción, solución y el output de Nessus.
+![vulns encontradas](/assets/v_high_2.png)
 
 ---
 
@@ -163,9 +163,7 @@ The following shares have no access restrictions :
 /datos    192.168.1.0/24(ro,sync,no_subtree_check)
 ```
 
-> [!TIP]
-> 📸 **Captura recomendada:** detalle del hallazgo HIGH "NFS Shares World Readable" con el output mostrando `/ *`.
-
+![vulns encontradas](/assets/v_high.png)
 ---
 
 ## Hallazgos Medios 🟡
@@ -192,9 +190,7 @@ sudo systemctl disable telnet
 sudo systemctl stop telnet
 ```
 
-> [!TIP]
-> 📸 **Captura recomendada:** detalle del hallazgo MEDIUM "Unencrypted Telnet Server" mostrando el banner del servidor Telnet capturado por Nessus.
-
+![vulns encontradas](/assets/v_medium.png)
 ---
 
 ### Apache Tomcat Default Files
@@ -241,6 +237,9 @@ The following weak client-to-server encryption algorithms are supported:
 ```
 
 **Solución:** Contactar con el proveedor o consultar la documentación para eliminar los cifrados débiles del servidor SSH.
+
+![vulns encontradas](/assets/v_medium_3.png)
+
 
 ---
 
