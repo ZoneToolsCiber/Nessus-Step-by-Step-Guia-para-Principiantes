@@ -116,7 +116,6 @@ Scan completado → Export → Seleccionar formato
 | **PDF** | Informe ejecutivo para presentar a dirección o al profesor |
 | **CSV** | Exportar datos para análisis en Excel o scripts propios |
 | **Nessus** | Formato nativo para importar en otra instancia de Nessus |
-| **HTML** | Informe navegable en el navegador sin necesidad de Nessus |
 
 ![alt text](../assets/report.png)
 ---
