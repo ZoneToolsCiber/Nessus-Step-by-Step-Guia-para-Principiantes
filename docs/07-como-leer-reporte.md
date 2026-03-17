@@ -22,6 +22,8 @@ Nessus clasifica cada hallazgo por severidad usando un código de colores basado
 
 ---
 
+![vulns encontradas](/assets/vuln_encontradas.png)
+
 ## Anatomía de un hallazgo
 
 Cada entrada en el reporte de Nessus tiene la siguiente estructura. Entender cada campo es clave para priorizar y remediar correctamente:
