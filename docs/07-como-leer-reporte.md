@@ -32,20 +32,20 @@ Cada entrada en el reporte de Nessus tiene la siguiente estructura. Entender cad
 ┌──────────────────────────────────────────────────────────────┐
 │  Plugin Name:  Apache HTTP Server < 2.4.50 Multiple Vulns    │
 │  Plugin ID:    153584                                        │
-│  Severity:     🔴 CRITICAL                                   │
+│  Severity:     🔴CRITICAL                                   |
 │  CVE:          CVE-2021-41773, CVE-2021-42013                │
 │  CVSS v3:      9.8                                           │
 │  VPR Score:    9.3                                           │
 ├──────────────────────────────────────────────────────────────┤
 │  Synopsis:     El servidor Apache remoto está afectado       │
-│                por múltiples vulnerabilidades críticas.       │
+│                por múltiples vulnerabilidades críticas.      │
 │                                                              │
 │  Description:  La versión instalada es anterior a 2.4.50.    │
 │                Está afectada por Path Traversal y RCE        │
 │                cuando mod_cgi está activo.                   │
 │                                                              │
 │  Solution:     Actualizar Apache a versión 2.4.50 o          │
-│                superior.                                      │
+│                superior.                                     │
 │                                                              │
 │  See Also:     https://httpd.apache.org/security/            │
 │                https://nvd.nist.gov/vuln/detail/CVE-2021...  │
@@ -118,6 +118,7 @@ Scan completado → Export → Seleccionar formato
 | **Nessus** | Formato nativo para importar en otra instancia de Nessus |
 | **HTML** | Informe navegable en el navegador sin necesidad de Nessus |
 
+![alt text](../assets/report.png)
 ---
 
 ← [Volver al índice](../README.md) · Siguiente: [Hallazgos →](08-hallazgos.md)
