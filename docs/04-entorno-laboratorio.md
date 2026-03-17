@@ -6,8 +6,6 @@
 
 Todo el análisis se realizó desde una máquina **Windows 11** con Nessus Expert instalado directamente sobre el sistema operativo — no desde una VM de Kali Linux. Las máquinas objetivo corren como máquinas virtuales en la misma red que el host Windows.
 
-> [!NOTE]
-> Aunque el entorno teórico descrito en otros documentos usa Kali Linux como plataforma del analista, **en la práctica real de este proyecto se utilizó Windows 11**. Nessus Expert está disponible para ambos sistemas y funciona de forma idéntica — la diferencia es únicamente cómo se instala y cómo se gestiona el servicio (ver [`03-instalacion.md`](03-instalacion.md)).
 
 ---
 
@@ -91,26 +89,22 @@ Antes de lanzar cualquier escaneo, confirmar que ambas máquinas se ven:
 
 ```bash
 # Desde Kali Linux — comprobar visibilidad del target
-ping -c 4 192.168.1.50
+ping -c 4 192.168.1.134
 ```
 
 Salida esperada:
 ```
-PING 192.168.1.50 (192.168.1.50): 56 bytes de datos
-64 bytes de 192.168.1.50: icmp_seq=0 ttl=64 time=0.8 ms
-64 bytes de 192.168.1.50: icmp_seq=1 ttl=64 time=0.6 ms
---- 192.168.1.50 ping statistics ---
+PING 192.168.1.134 (192.168.1.134): 56 bytes de datos
+64 bytes de 192.168.1.134: icmp_seq=0 ttl=64 time=0.8 ms
+64 bytes de 192.168.1.134: icmp_seq=1 ttl=64 time=0.6 ms
+--- 192.168.1.134 ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss
 ```
 
 ```bash
 # Reconocimiento previo con nmap (referencia antes de Nessus)
-nmap -sV 192.168.1.50
+nmap -sV 192.168.1.134
 ```
-
-> [!TIP]
-> 📸 **Captura recomendada:** resultado del `ping` y del `nmap` mostrando los servicios detectados antes de lanzar Nessus.
-
 ---
 
 ← [Volver al índice](../README.md) · Siguiente: [Tipos de escaneo →](05-tipos-escaneo.md)
