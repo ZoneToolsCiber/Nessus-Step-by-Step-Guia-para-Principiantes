@@ -77,14 +77,6 @@ En el panorama actual de la ciberseguridad, la superficie de ataque de las organ
 │   ├── 08-hallazgos.md
 │   └── 09-remediacion.md
 │
-├── 📂 reports/
-│   ├── nessus-report-initial.pdf     # Reporte del primer escaneo
-│   └── nessus-report-rescan.pdf      # Reporte del re-scan post-remediación
-│
-├── 📂 lab-environment/
-│   ├── network-config.md             # Configuración de red de las VMs
-│   └── metasploitable-setup.md       # Guía de configuración de Metasploitable 2
-│
 └── 📄 README.md                      # Este archivo — índice principal
 ```
 
