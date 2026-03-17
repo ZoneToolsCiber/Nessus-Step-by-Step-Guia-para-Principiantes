@@ -77,7 +77,7 @@ Nessus-X.X.X-x64.exe
 > Asegurarse de descargar la versión `x64` si el sistema es de 64 bits, que es lo habitual en cualquier equipo moderno.
 
 ---
-![Instalacion Nessus](/assets/3_nesus.png)
+![Instalacion Nessus](/assets/3_nessus.png)
 
 ### Paso 3 — Ejecutar el instalador
 
@@ -128,7 +128,6 @@ Una vez que el servicio está corriendo:
 > [!IMPORTANT]
 > La descarga de plugins puede tardar entre **10 y 30 minutos** dependiendo de la conexión. No cerrar el navegador ni reiniciar el servicio durante este proceso.
 >
-> Si se interrumpe en **Linux**: `sudo systemctl restart nessusd`
 > Si se interrumpe en **Windows**: reiniciar "Tenable Nessus" desde el Administrador de servicios.
 
 ![Instalacion Nessus](/assets/instalacion_16.png)
