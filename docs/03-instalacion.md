@@ -50,8 +50,8 @@ Tenable ofrece una **trial gratuita de 7 días completos** de Nessus Expert sin 
 A continuación se muestran las capturas realizadas:
 
 ![Instalacion Nessus](/assets/1_nesus.png)
-![Instalacion Nessus](/assets/2_nesus.png)
-![Instalacion Nessus](/assets/3_nesus.png)
+![Instalacion Nessus](/assets/2_nessus.png)
+![Instalacion Nessus](/assets/3_nessus.png)
 
 
 > [!NOTE]
