@@ -214,7 +214,7 @@ Email Recipient(s): correo@ejemplo.com · Attach Report: ON · Formato: PDF/CSV/
 
 ![Instalacion Nessus](/assets/host_discovery_2.png)
 ![Instalacion Nessus](/assets/schedule.png)
-![Instalacion Nessus](/assets/notifications.png)
+![Instalacion Nessus](/assets//notification.png)
 
 
 ---
@@ -290,8 +290,7 @@ Gestiona qué aparece en el informe y cómo se identifican los hosts.
 | **Display unreachable hosts** | Incluye IPs que no respondieron | ⚠️ Solo si necesitas confirmar qué equipos estaban apagados — genera informes muy grandes en rangos amplios |
 | **Display Unicode characters** | Muestra tildes, ñ y caracteres no ASCII | ✅ Activar si hay nombres con caracteres especiales |
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Report mostrando las opciones con sus checkboxes.
+![Instalacion Nessus](/assets/report.png)
 
 ---
 
@@ -325,8 +324,9 @@ Su propósito es la **optimización y el sigilo**: ajustar el rendimiento para q
 > [!WARNING]
 > Valores muy altos de hosts simultáneos pueden colapsar el switch de la red. En laboratorio, los valores por defecto son adecuados — no modificar para el primer uso.
 
-> [!TIP]
-> 📸 **Captura recomendada:** pestaña Advanced mostrando las Performance Options con los valores configurados.
+![Instalacion Nessus](/assets/escaneo_avanzado.png)
+![Instalacion Nessus](/assets/escaneo_avanzado_2.png)
+![Instalacion Nessus](/assets/advanced_scan.png)
 
 ---
 
