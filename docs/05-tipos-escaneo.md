@@ -558,9 +558,7 @@ New Scan → VULNERABILITIES → Credentialed Patch Audit
 > [!IMPORTANT]
 > Requiere credenciales. Sin autenticación, Nessus no puede consultar los paquetes instalados ni su versión de parche.
 
-> [!TIP]
-> 📸 **Captura recomendada:** plantilla Credentialed Patch Audit en la galería de Scan Templates.
-
+![parche](image-1.png)
 ---
 
 ← [Volver al índice](../README.md) · Siguiente: [Políticas de escaneo →](06-politicas-escaneo.md)
